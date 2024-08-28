@@ -1,0 +1,57 @@
+{
+  "ECL": {
+    "path": "dataset/LD2011_2014.csv",
+    "dim": 370,
+    "seq_len": 384,
+    "patch_len": 96,
+    "stride": 16
+  },
+
+  "ETTh": {
+    "path": "dataset/ETTh.csv",
+    "dim": 14,
+    "seq_len": 96,
+    "patch_len": 24,
+    "stride": 4
+  },
+
+  "ETTm": {
+    "path": "dataset/ETTm.csv",
+    "dim": 14,
+    "seq_len": 384,
+    "patch_len": 96,
+    "stride": 16
+  },
+
+  "Solar": {
+    "path": "dataset/solar_Alabama.csv",
+    "dim": 137,
+    "seq_len": 384,
+    "patch_len": 96,
+    "stride": 16
+  },
+
+  "Traffic": {
+    "path": "dataset/PeMS.csv",
+    "dim": 862,
+    "seq_len": 96,
+    "patch_len": 24,
+    "stride": 4
+  },
+
+  "Weather": {
+    "path": "dataset/mpi_roof.csv",
+    "dim": 20,
+    "seq_len": 576,
+    "patch_len": 144,
+    "stride": 24
+  },
+
+  "QPS": {
+    "dim": 10,
+    "path": "dataset/QPS.csv",
+    "seq_len": 240,
+    "patch_len": 60,
+    "stride": 10
+  }
+}
