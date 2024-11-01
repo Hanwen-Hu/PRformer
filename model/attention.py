@@ -55,7 +55,7 @@ def trend_attention(query: Tensor, key: Tensor, value: Tensor) -> Tensor:
     """
     query = (query - torch.mean(query, dim=-1, keepdim=True)).unsqueeze(-2)  # (batch, dim, patch_num, 1, patch_len)
     key = (key - torch.mean(key, dim=-1, keepdim=True)).unsqueeze(-3)  # (batch, dim, 1, patch_num, patch_len)
-    score = torch.sum((query - key) * (query - key), dim=-1)  # (batch, dim, patch_num, patch_num)
+    score = -torch.sum((query - key) * (query - key), dim=-1)  # (batch, dim, patch_num, patch_num)
     weight = score_to_weight(score)  # weighting
     return torch.matmul(weight, value)
 
