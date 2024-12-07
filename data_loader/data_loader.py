@@ -8,7 +8,7 @@ class TSDataset(Dataset):
         dataset = read_csv(path)
         self.pred_len = pred_len
         self.seq_len = seq_len
-        self.data = torch.Tensor(dataset.values).to(device)
+        self.data = torch.Tensor(dataset.iloc[:, 1:].values).to(device)
         self._split(mode)
 
     def _split(self, mode: str) -> None:
