@@ -22,7 +22,7 @@ class PRformer:
         self.mae_func = lambda x, y: torch.mean((torch.abs(x - y)))
 
     def _get_data(self, mode: str) -> DataLoader:
-        dataset = TSDataset(self.args.pred_len, self.args.seq_len, self.args.dim, self.args.path, self.args.device, mode)
+        dataset = TSDataset(self.args.pred_len, self.args.seq_len, self.args.path, self.args.device, mode)
         return DataLoader(dataset, batch_size=self.args.batch_size, shuffle=True)
 
     def _train_model(self, loader: DataLoader, optimizer: torch.optim.Optimizer) -> float:
@@ -83,7 +83,7 @@ class PRformer:
         print('MAE: ', round(mae_loss, 4))
 
     def visualize(self) -> None:
-        dataset = TSDataset(self.args.pred_len, self.args.seq_len, self.args.dim, self.args.path, self.args.device, 'test')
+        dataset = TSDataset(self.args.pred_len, self.args.seq_len, self.args.path, self.args.device, 'test')
         state_dict = torch.load(self.file_name)
         self.model.load_state_dict(state_dict)
         self.model.eval()

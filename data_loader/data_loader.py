@@ -4,12 +4,11 @@ from pandas import read_csv
 
 
 class TSDataset(Dataset):
-    def __init__(self, pred_len: int, seq_len: int, dim: int, path: str, device: torch.device, mode: str) -> None:
+    def __init__(self, pred_len: int, seq_len: int, path: str, device: torch.device, mode: str) -> None:
         dataset = read_csv(path)
-        assert dim < dataset.shape[1]
         self.pred_len = pred_len
         self.seq_len = seq_len
-        self.data = torch.Tensor(dataset.iloc[:, -dim:].values).to(device)
+        self.data = torch.Tensor(dataset.values).to(device)
         self._split(mode)
 
     def _split(self, mode: str) -> None:
